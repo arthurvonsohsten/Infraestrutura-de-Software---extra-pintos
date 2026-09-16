@@ -30,11 +30,40 @@ static void busy_wait (int64_t loops);
 static void real_time_sleep (int64_t num, int32_t denom);
 static void real_time_delay (int64_t num, int32_t denom);
 
+/* Uma thread dormindo em timer_sleep(), esperando para ser acordada
+   quando timer_ticks() alcançar WAKE_TICK.  Cada chamador de
+   timer_sleep() mantém um destes na própria pilha e o insere em
+   SLEEP_LIST; o handler de interrupção do timer acorda as threads
+   removendo entradas prontas do início dessa lista e sinalizando
+   SEMA, que é o que de fato bloqueia/desbloqueia a thread. */
+struct sleeping_thread
+  {
+    int64_t wake_tick;            /* Tick em que deve acordar. */
+    int priority;                 /* Prioridade no momento em que
+                                      timer_sleep() foi chamada, usada
+                                      para desempatar threads que
+                                      compartilham o mesmo WAKE_TICK. */
+    struct semaphore sema;        /* Sinalizado para acordar a thread. */
+    struct list_elem elem;        /* Elemento de lista para SLEEP_LIST. */
+  };
+
+/* Lista de structs sleeping_thread, ordenada de forma não decrescente
+   por WAKE_TICK (empates desempatados por PRIORITY decrescente, para
+   que entre threads que acordam no mesmo tick a de maior prioridade
+   seja desbloqueada, e portanto escalonada, primeiro).  Protegida
+   desabilitando interrupções: é acessada tanto por threads do kernel
+   (em timer_sleep()) quanto pelo handler de interrupção do timer. */
+static struct list sleep_list;
+
+static bool wake_tick_less (const struct list_elem *a,
+                             const struct list_elem *b, void *aux);
+
 /* Sets up the timer to interrupt TIMER_FREQ times per second,
    and registers the corresponding interrupt. */
 void
-timer_init (void) 
+timer_init (void)
 {
+  list_init (&sleep_list);
   pit_configure_channel (0, 2, TIMER_FREQ);
   intr_register_ext (0x20, timer_interrupt, "8254 Timer");
 }
@@ -87,13 +116,31 @@ timer_elapsed (int64_t then)
 /* Sleeps for approximately TICKS timer ticks.  Interrupts must
    be turned on. */
 void
-timer_sleep (int64_t ticks) 
+timer_sleep (int64_t ticks)
 {
-  int64_t start = timer_ticks ();
+  struct sleeping_thread st;
+  enum intr_level old_level;
 
   ASSERT (intr_get_level () == INTR_ON);
-  while (timer_elapsed (start) < ticks) 
-    thread_yield ();
+
+  if (ticks <= 0)
+    return;
+
+  st.wake_tick = timer_ticks () + ticks;
+  st.priority = thread_get_priority ();
+  sema_init (&st.sema, 0);
+
+  /* Registra o pedido de despertar desta thread e bloqueia em
+     ST.SEMA em vez de ficar girando.  O handler de interrupção do
+     timer a acorda chamando sema_up() quando WAKE_TICK é alcançado
+     (ver timer_interrupt()).  SLEEP_LIST é compartilhada com o
+     handler de interrupção, então só pode ser modificada com
+     interrupções desabilitadas. */
+  old_level = intr_disable ();
+  list_insert_ordered (&sleep_list, &st.elem, wake_tick_less, NULL);
+  intr_set_level (old_level);
+
+  sema_down (&st.sema);
 }
 
 /* Sleeps for approximately MS milliseconds.  Interrupts must be
@@ -172,6 +219,39 @@ timer_interrupt (struct intr_frame *args UNUSED)
 {
   ticks++;
   thread_tick ();
+
+  /* Acorda toda thread cujo WAKE_TICK já foi alcançado.  SLEEP_LIST
+     é mantida ordenada por WAKE_TICK, então basta remover entradas
+     do início até encontrar uma que ainda não está pronta.
+     sema_up() pode ser chamada com segurança de um handler de
+     interrupção. */
+  while (!list_empty (&sleep_list))
+    {
+      struct sleeping_thread *st = list_entry (list_front (&sleep_list),
+                                                struct sleeping_thread, elem);
+      if (st->wake_tick > ticks)
+        break;
+      list_pop_front (&sleep_list);
+      sema_up (&st->sema);
+    }
+}
+
+/* Compara dois elementos de lista sleeping_thread A e B, primeiro
+   pelo tick de despertar e, para threads que acordam no mesmo tick,
+   por prioridade decrescente.  Usada para manter SLEEP_LIST ordenada
+   de forma que timer_interrupt() acorde as threads na ordem em que
+   devem rodar. */
+static bool
+wake_tick_less (const struct list_elem *a, const struct list_elem *b,
+                void *aux UNUSED)
+{
+  const struct sleeping_thread *sa = list_entry (a, struct sleeping_thread,
+                                                  elem);
+  const struct sleeping_thread *sb = list_entry (b, struct sleeping_thread,
+                                                  elem);
+  if (sa->wake_tick != sb->wake_tick)
+    return sa->wake_tick < sb->wake_tick;
+  return sa->priority > sb->priority;
 }
 
 /* Returns true if LOOPS iterations waits for more than one timer
