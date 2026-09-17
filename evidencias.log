@@ -1,49 +1,388 @@
-================================================================
- Pint-OS - Alarm Clock - Evidências de teste
- Autor: Arthur (arthurdelimavonsohsten@gmail.com)
- Ambiente: WSL2 Ubuntu 26.04, gcc 15.2.0 (-m32), QEMU 10.2.1
-================================================================
+Script started on 2026-09-17 14:29:56-03:00 [COMMAND="/home/arthur/run_evidence.sh" <not executed on terminal>]
++ date
+Thu Sep 17 14:29:56 -03 2026
++ whoami
+arthur
++ pwd
+/mnt/c/Users/Adriana/Desktop/pint
++ export 'PATH=/home/arthur/InfrSW/pintos/src/utils:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Users/Adriana/bin:/mnt/c/Program Files/Git/mingw64/bin:/mnt/c/Program Files/Git/usr/local/bin:/mnt/c/Program Files/Git/usr/bin:/mnt/c/Program Files/Git/usr/bin:/mnt/c/Program Files/Git/mingw64/bin:/mnt/c/Program Files/Git/usr/bin:/mnt/c/Users/Adriana/bin:/mnt/c/Program Files/Eclipse Adoptium/jdk-17.0.20.8-hotspot/bin:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/java8path:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0:/mnt/c/Windows/System32/OpenSSH:/mnt/c/Program Files/SafeNet/Authentication/SAC/x32:/mnt/c/Program Files/SafeNet/Authentication/SAC/x64:/mnt/c/ProgramData/UNIVALI/Portugol Studio:/mnt/c/Program Files/Git/cmd:/mnt/c/Users/Adriana/AppData/Local/Programs/cursor/resources/app/bin:/mnt/c/Program Files/nodejs:/mnt/c/Program Files/dotnet:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/Users/Adriana/AppData/Local/Android/Sdk/platform-tools:/mnt/c/Users/Adriana/AppData/Local/Android/Sdk/cmdline-tools/latest/bin:/mnt/c/Program Files (x86)/cloudflared:/mnt/c/Users/Adriana/AppData/Local/Programs/Python/Python313/Scripts:/mnt/c/Users/Adriana/AppData/Local/Programs/Python/Python313:/mnt/c/Users/Adriana/AppData/Local/Programs/Python/Launcher:/mnt/c/MinGW/bin:/mnt/c/Users/Adriana/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/Adriana/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/Adriana/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/Adriana/AppData/Local/Programs/cursor/resources/app/bin:/mnt/c/Users/Adriana/AppData/Roaming/npm:/mnt/c/Users/Adriana/.dotnet/tools:/mnt/c/flutter/bin:/mnt/c/Flutter/flutter/bin:/mnt/c/Program Files/Git/usr/bin/vendor_perl:/mnt/c/Program Files/Git/usr/bin/core_perl'
++ PATH='/home/arthur/InfrSW/pintos/src/utils:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Users/Adriana/bin:/mnt/c/Program Files/Git/mingw64/bin:/mnt/c/Program Files/Git/usr/local/bin:/mnt/c/Program Files/Git/usr/bin:/mnt/c/Program Files/Git/usr/bin:/mnt/c/Program Files/Git/mingw64/bin:/mnt/c/Program Files/Git/usr/bin:/mnt/c/Users/Adriana/bin:/mnt/c/Program Files/Eclipse Adoptium/jdk-17.0.20.8-hotspot/bin:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/java8path:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0:/mnt/c/Windows/System32/OpenSSH:/mnt/c/Program Files/SafeNet/Authentication/SAC/x32:/mnt/c/Program Files/SafeNet/Authentication/SAC/x64:/mnt/c/ProgramData/UNIVALI/Portugol Studio:/mnt/c/Program Files/Git/cmd:/mnt/c/Users/Adriana/AppData/Local/Programs/cursor/resources/app/bin:/mnt/c/Program Files/nodejs:/mnt/c/Program Files/dotnet:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/Users/Adriana/AppData/Local/Android/Sdk/platform-tools:/mnt/c/Users/Adriana/AppData/Local/Android/Sdk/cmdline-tools/latest/bin:/mnt/c/Program Files (x86)/cloudflared:/mnt/c/Users/Adriana/AppData/Local/Programs/Python/Python313/Scripts:/mnt/c/Users/Adriana/AppData/Local/Programs/Python/Python313:/mnt/c/Users/Adriana/AppData/Local/Programs/Python/Launcher:/mnt/c/MinGW/bin:/mnt/c/Users/Adriana/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/Adriana/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/Adriana/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/Adriana/AppData/Local/Programs/cursor/resources/app/bin:/mnt/c/Users/Adriana/AppData/Roaming/npm:/mnt/c/Users/Adriana/.dotnet/tools:/mnt/c/flutter/bin:/mnt/c/Flutter/flutter/bin:/mnt/c/Program Files/Git/usr/bin/vendor_perl:/mnt/c/Program Files/Git/usr/bin/core_perl'
++ cd /home/arthur/InfrSW/pintos
++ echo ==================================================================
+==================================================================
++ echo 'ESTADO DO REPOSITORIO'
+ESTADO DO REPOSITORIO
++ echo ==================================================================
+==================================================================
++ git log --oneline -6
+[?1h=[33m0bd5a52[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31mmeu-repo/master[m[33m)[m docs: adicionar README e evidencias.lo[m [33m[m[33m[m[1;36m[m[33m[m[1;32m[m[33m[m[1;31m[m[33m[mg[m
+[33mca7656a[m threads: implementar timer_sleep() sem busy wait[m
+[33macf854e[m build: ajustar flags de toolchain para gcc e QEMU modernos[m
+[33mab69995[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m upgrade gdb to 7.12 to allow usage of lates[m [33m[m[33m[m[1;31m[m[33m[m[1;31m[m[33m[mt cgdb[m
+[33m607a486[m disable python support by default for i386-elf-gdb build[m
+[33m19433ac[m fix gdb build error with Python 3.7[m
+[K[?1l>+ echo ==================================================================
+==================================================================
++ echo 'PARTE 1: BASELINE - timer_sleep() original (busy wait)'
+PARTE 1: BASELINE - timer_sleep() original (busy wait)
++ echo 'Checkout do commit acf854e (toolchain corrigido, alarm clock AINDA nao implementado)'
+Checkout do commit acf854e (toolchain corrigido, alarm clock AINDA nao implementado)
++ echo ==================================================================
+==================================================================
++ git checkout acf854e -- .
++ git status --short
+[32mM[m  README.md
+[32mM[m  src/devices/timer.c
++ sed -n 86,97p src/devices/timer.c
 
-----------------------------------------------------------------
-1. ANTES DA CORREÇÃO - timer_sleep() original (busy wait)
-   Comando: pintos -- -q run alarm-multiple
-----------------------------------------------------------------
-Loading.............
+/* Sleeps for approximately TICKS timer ticks.  Interrupts must
+   be turned on. */
+void
+timer_sleep (int64_t ticks) 
+{
+  int64_t start = timer_ticks ();
+
+  ASSERT (intr_get_level () == INTR_ON);
+  while (timer_elapsed (start) < ticks) 
+    thread_yield ();
+}
++ cd src/threads
++ make clean
+rm -rf build
++ make
+mkdir -p build/devices
+mkdir -p build/lib
+mkdir -p build/lib/kernel
+mkdir -p build/lib/user
+mkdir -p build/tests/threads
+mkdir -p build/threads
+cp ../Makefile.build build/Makefile
+cd build && make all
+make[1]: Entering directory '/home/arthur/InfrSW/pintos/src/threads/build'
+gcc -E -nostdinc -I../.. -I../../lib -I../../lib/kernel -P ../../threads/kernel.lds.S > threads/kernel.lds.s
+gcc -c ../../threads/start.S -o threads/start.o -Wa,--gstabs,--32 -nostdinc -I../.. -I../../lib -I../../lib/kernel  -MMD -MF threads/start.d
+gcc -c ../../threads/init.c -o threads/init.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF threads/init.d
+gcc -c ../../threads/thread.c -o threads/thread.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF threads/thread.d
+gcc -c ../../threads/switch.S -o threads/switch.o -Wa,--gstabs,--32 -nostdinc -I../.. -I../../lib -I../../lib/kernel  -MMD -MF threads/switch.d
+gcc -c ../../threads/interrupt.c -o threads/interrupt.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF threads/interrupt.d
+gcc -c ../../threads/intr-stubs.S -o threads/intr-stubs.o -Wa,--gstabs,--32 -nostdinc -I../.. -I../../lib -I../../lib/kernel  -MMD -MF threads/intr-stubs.d
+gcc -c ../../threads/synch.c -o threads/synch.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF threads/synch.d
+gcc -c ../../threads/palloc.c -o threads/palloc.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF threads/palloc.d
+gcc -c ../../threads/malloc.c -o threads/malloc.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF threads/malloc.d
+gcc -c ../../devices/pit.c -o devices/pit.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF devices/pit.d
+gcc -c ../../devices/timer.c -o devices/timer.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF devices/timer.d
+gcc -c ../../devices/kbd.c -o devices/kbd.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF devices/kbd.d
+gcc -c ../../devices/vga.c -o devices/vga.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF devices/vga.d
+gcc -c ../../devices/serial.c -o devices/serial.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF devices/serial.d
+gcc -c ../../devices/block.c -o devices/block.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF devices/block.d
+gcc -c ../../devices/partition.c -o devices/partition.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF devices/partition.d
+gcc -c ../../devices/ide.c -o devices/ide.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF devices/ide.d
+gcc -c ../../devices/input.c -o devices/input.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF devices/input.d
+gcc -c ../../devices/intq.c -o devices/intq.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF devices/intq.d
+gcc -c ../../devices/rtc.c -o devices/rtc.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF devices/rtc.d
+gcc -c ../../devices/shutdown.c -o devices/shutdown.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF devices/shutdown.d
+gcc -c ../../devices/speaker.c -o devices/speaker.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF devices/speaker.d
+gcc -c ../../lib/debug.c -o lib/debug.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF lib/debug.d
+[01m[K../../lib/debug.c:[m[K In function ‘[01m[Kdebug_backtrace[m[K’:
+[01m[K../../lib/debug.c:19:16:[m[K [01;35m[Kwarning: [m[Kcalling ‘[01m[K__builtin_frame_address[m[K’ with a nonzero argument is unsafe [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc-15.2.0/gcc/Warning-Options.html#index-Wframe-address-Wframe-address]8;;[m[K]
+   19 |   for (frame = [01;35m[K__builtin_frame_address (1)[m[K;
+      |                [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+gcc -c ../../lib/random.c -o lib/random.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF lib/random.d
+gcc -c ../../lib/stdio.c -o lib/stdio.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF lib/stdio.d
+gcc -c ../../lib/stdlib.c -o lib/stdlib.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF lib/stdlib.d
+gcc -c ../../lib/string.c -o lib/string.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF lib/string.d
+In file included from [01m[K../../lib/string.c:2[m[K:
+[01m[K../../lib/string.c:[m[K In function ‘[01m[Kstrchr[m[K’:
+[01m[K../../lib/debug.h:32:12:[m[K [01;35m[Kwarning: [m[K‘[01m[Knonnull[m[K’ argument ‘[01m[Kstring[m[K’ compared to NULL [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc-15.2.0/gcc/Warning-Options.html#index-Wno-nonnull-compare-Wnonnull-compare]8;;[m[K]
+   32 |         if [01;35m[K([m[KCONDITION) { } else {                               \
+      |            [01;35m[K^[m[K
+[01m[K../../lib/string.c:117:3:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KASSERT[m[K’
+  117 |   [01;36m[KASSERT[m[K (string != NULL);
+      |   [01;36m[K^~~~~~[m[K
+[01m[K../../lib/string.c:[m[K In function ‘[01m[Kstrlen[m[K’:
+[01m[K../../lib/debug.h:32:12:[m[K [01;35m[Kwarning: [m[K‘[01m[Knonnull[m[K’ argument ‘[01m[Kstring[m[K’ compared to NULL [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc-15.2.0/gcc/Warning-Options.html#index-Wno-nonnull-compare-Wnonnull-compare]8;;[m[K]
+   32 |         if [01;35m[K([m[KCONDITION) { } else {                               \
+      |            [01;35m[K^[m[K
+[01m[K../../lib/string.c:297:3:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KASSERT[m[K’
+  297 |   [01;36m[KASSERT[m[K (string != NULL);
+      |   [01;36m[K^~~~~~[m[K
+gcc -c ../../lib/arithmetic.c -o lib/arithmetic.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF lib/arithmetic.d
+gcc -c ../../lib/ustar.c -o lib/ustar.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF lib/ustar.d
+gcc -c ../../lib/kernel/debug.c -o lib/kernel/debug.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF lib/kernel/debug.d
+[01m[K../../lib/kernel/debug.c:[m[K In function ‘[01m[Kprint_stacktrace[m[K’:
+[01m[K../../lib/kernel/debug.c:82:15:[m[K [01;35m[Kwarning: [m[Kcalling ‘[01m[K__builtin_frame_address[m[K’ with a nonzero argument is unsafe [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc-15.2.0/gcc/Warning-Options.html#index-Wframe-address-Wframe-address]8;;[m[K]
+   82 |       frame = [01;35m[K__builtin_frame_address (1)[m[K;
+      |               [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+gcc -c ../../lib/kernel/list.c -o lib/kernel/list.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF lib/kernel/list.d
+gcc -c ../../lib/kernel/bitmap.c -o lib/kernel/bitmap.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF lib/kernel/bitmap.d
+gcc -c ../../lib/kernel/hash.c -o lib/kernel/hash.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF lib/kernel/hash.d
+gcc -c ../../lib/kernel/console.c -o lib/kernel/console.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF lib/kernel/console.d
+gcc -c ../../tests/threads/tests.c -o tests/threads/tests.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/threads/tests.d
+gcc -c ../../tests/threads/alarm-wait.c -o tests/threads/alarm-wait.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/threads/alarm-wait.d
+[01m[K../../tests/threads/alarm-wait.c:[m[K In function ‘[01m[Ktest_sleep[m[K’:
+[01m[K../../tests/threads/alarm-wait.c:92:46:[m[K [01;35m[Kwarning: [m[K‘[01m[Ksnprintf[m[K’ output may be truncated before the last format character [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc-15.2.0/gcc/Warning-Options.html#index-Wformat-truncation-Wformat-truncation=]8;;[m[K]
+   92 |       snprintf (name, sizeof name, "thread %d[01;32m[K"[m[K, i);
+      |                                              [01;32m[K^[m[K
+[01m[K../../tests/threads/alarm-wait.c:92:7:[m[K [01;36m[Knote: [m[K‘[01m[Ksnprintf[m[K’ output between 9 and 17 bytes into a destination of size 16
+   92 |       [01;36m[Ksnprintf (name, sizeof name, "thread %d", i)[m[K;
+      |       [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+gcc -c ../../tests/threads/alarm-simultaneous.c -o tests/threads/alarm-simultaneous.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/threads/alarm-simultaneous.d
+[01m[K../../tests/threads/alarm-simultaneous.c:[m[K In function ‘[01m[Ktest_sleep[m[K’:
+[01m[K../../tests/threads/alarm-simultaneous.c:61:44:[m[K [01;35m[Kwarning: [m[K‘[01m[K%d[m[K’ directive output may be truncated writing between 1 and 10 bytes into a region of size 9 [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc-15.2.0/gcc/Warning-Options.html#index-Wformat-truncation-Wformat-truncation=]8;;[m[K]
+   61 |       snprintf (name, sizeof name, "thread [01;32m[K%[m[K[01;32m[Kd[m[K", i);
+      |                                            [01;32m[K^[m[K[01;32m[K~[m[K
+[01m[K../../tests/threads/alarm-simultaneous.c:61:36:[m[K [01;36m[Knote: [m[Kdirective argument in the range [0, 2147483646]
+   61 |       snprintf (name, sizeof name, [01;36m[K"thread %d"[m[K, i);
+      |                                    [01;36m[K^~~~~~~~~~~[m[K
+[01m[K../../tests/threads/alarm-simultaneous.c:61:7:[m[K [01;36m[Knote: [m[K‘[01m[Ksnprintf[m[K’ output between 9 and 18 bytes into a destination of size 16
+   61 |       [01;36m[Ksnprintf (name, sizeof name, "thread %d", i)[m[K;
+      |       [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+gcc -c ../../tests/threads/alarm-priority.c -o tests/threads/alarm-priority.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/threads/alarm-priority.d
+gcc -c ../../tests/threads/alarm-zero.c -o tests/threads/alarm-zero.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/threads/alarm-zero.d
+gcc -c ../../tests/threads/alarm-negative.c -o tests/threads/alarm-negative.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/threads/alarm-negative.d
+gcc -c ../../tests/threads/priority-change.c -o tests/threads/priority-change.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/threads/priority-change.d
+gcc -c ../../tests/threads/priority-donate-one.c -o tests/threads/priority-donate-one.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/threads/priority-donate-one.d
+gcc -c ../../tests/threads/priority-donate-multiple.c -o tests/threads/priority-donate-multiple.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/threads/priority-donate-multiple.d
+gcc -c ../../tests/threads/priority-donate-multiple2.c -o tests/threads/priority-donate-multiple2.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/threads/priority-donate-multiple2.d
+gcc -c ../../tests/threads/priority-donate-nest.c -o tests/threads/priority-donate-nest.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/threads/priority-donate-nest.d
+gcc -c ../../tests/threads/priority-donate-sema.c -o tests/threads/priority-donate-sema.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/threads/priority-donate-sema.d
+gcc -c ../../tests/threads/priority-donate-lower.c -o tests/threads/priority-donate-lower.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/threads/priority-donate-lower.d
+gcc -c ../../tests/threads/priority-fifo.c -o tests/threads/priority-fifo.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/threads/priority-fifo.d
+gcc -c ../../tests/threads/priority-preempt.c -o tests/threads/priority-preempt.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/threads/priority-preempt.d
+gcc -c ../../tests/threads/priority-sema.c -o tests/threads/priority-sema.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/threads/priority-sema.d
+gcc -c ../../tests/threads/priority-condvar.c -o tests/threads/priority-condvar.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/threads/priority-condvar.d
+gcc -c ../../tests/threads/priority-donate-chain.c -o tests/threads/priority-donate-chain.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/threads/priority-donate-chain.d
+gcc -c ../../tests/threads/mlfqs-load-1.c -o tests/threads/mlfqs-load-1.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/threads/mlfqs-load-1.d
+gcc -c ../../tests/threads/mlfqs-load-60.c -o tests/threads/mlfqs-load-60.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/threads/mlfqs-load-60.d
+gcc -c ../../tests/threads/mlfqs-load-avg.c -o tests/threads/mlfqs-load-avg.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/threads/mlfqs-load-avg.d
+gcc -c ../../tests/threads/mlfqs-recent-1.c -o tests/threads/mlfqs-recent-1.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/threads/mlfqs-recent-1.d
+gcc -c ../../tests/threads/mlfqs-fair.c -o tests/threads/mlfqs-fair.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/threads/mlfqs-fair.d
+gcc -c ../../tests/threads/mlfqs-block.c -o tests/threads/mlfqs-block.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/threads/mlfqs-block.d
+ld -melf_i386 -T threads/kernel.lds.s -o kernel.o threads/start.o threads/init.o threads/thread.o threads/switch.o threads/interrupt.o threads/intr-stubs.o threads/synch.o threads/palloc.o threads/malloc.o devices/pit.o devices/timer.o devices/kbd.o devices/vga.o devices/serial.o devices/block.o devices/partition.o devices/ide.o devices/input.o devices/intq.o devices/rtc.o devices/shutdown.o devices/speaker.o lib/debug.o lib/random.o lib/stdio.o lib/stdlib.o lib/string.o lib/arithmetic.o lib/ustar.o lib/kernel/debug.o lib/kernel/list.o lib/kernel/bitmap.o lib/kernel/hash.o lib/kernel/console.o tests/threads/tests.o tests/threads/alarm-wait.o tests/threads/alarm-simultaneous.o tests/threads/alarm-priority.o tests/threads/alarm-zero.o tests/threads/alarm-negative.o tests/threads/priority-change.o tests/threads/priority-donate-one.o tests/threads/priority-donate-multiple.o tests/threads/priority-donate-multiple2.o tests/threads/priority-donate-nest.o tests/threads/priority-donate-sema.o tests/threads/priority-donate-lower.o tests/threads/priority-fifo.o tests/threads/priority-preempt.o tests/threads/priority-sema.o tests/threads/priority-condvar.o tests/threads/priority-donate-chain.o tests/threads/mlfqs-load-1.o tests/threads/mlfqs-load-60.o tests/threads/mlfqs-load-avg.o tests/threads/mlfqs-recent-1.o tests/threads/mlfqs-fair.o tests/threads/mlfqs-block.o
+objdump -S kernel.o > kernel.asm
+nm -n kernel.o > kernel.sym
+objcopy -R .note -R .comment -S kernel.o kernel.bin
+gcc -c ../../threads/loader.S -o threads/loader.o -Wa,--gstabs,--32 -nostdinc -I../.. -I../../lib 
+ld -melf_i386 -N -e 0 -Ttext 0x7c00 -o loader.out threads/loader.o
+/usr/bin/x86_64-linux-gnu-ld.bfd: warning: loader.out has a LOAD segment with RWX permissions
+objdump -S loader.out > loader.asm
+objcopy -S -O binary -j .text loader.out loader.bin
+rm loader.out
+make[1]: Leaving directory '/home/arthur/InfrSW/pintos/src/threads/build'
++ cd build
++ echo '----- pintos -- -q run alarm-multiple (ANTES da correcao) -----'
+----- pintos -- -q run alarm-multiple (ANTES da correcao) -----
++ pintos -- -q run alarm-multiple
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/YImoTV_vTn.dsk -m 4 -net none -serial stdio
+Pintos hda1
+Loading............
 Kernel command line: -q run alarm-multiple
 Pintos booting with 3,968 kB RAM...
 367 pages available in kernel pool.
 367 pages available in user pool.
-Calibrating timer...  117,760,000 loops/s.
+Calibrating timer...  27,545,600 loops/s.
 Boot complete.
 Executing 'alarm-multiple':
 (alarm-multiple) begin
 (alarm-multiple) Creating 5 threads to sleep 7 times each.
-...
+(alarm-multiple) Thread 0 sleeps 10 ticks each time,
+(alarm-multiple) thread 1 sleeps 20 ticks each time, and so on.
+(alarm-multiple) If successful, product of iteration count and
+(alarm-multiple) sleep duration will appear in nondescending order.
+(alarm-multiple) thread 0: duration=10, iteration=1, product=10
+(alarm-multiple) thread 0: duration=10, iteration=2, product=20
+(alarm-multiple) thread 1: duration=20, iteration=1, product=20
+(alarm-multiple) thread 0: duration=10, iteration=3, product=30
+(alarm-multiple) thread 2: duration=30, iteration=1, product=30
+(alarm-multiple) thread 0: duration=10, iteration=4, product=40
+(alarm-multiple) thread 1: duration=20, iteration=2, product=40
+(alarm-multiple) thread 3: duration=40, iteration=1, product=40
+(alarm-multiple) thread 0: duration=10, iteration=5, product=50
+(alarm-multiple) thread 4: duration=50, iteration=1, product=50
+(alarm-multiple) thread 2: duration=30, iteration=2, product=60
+(alarm-multiple) thread 0: duration=10, iteration=6, product=60
+(alarm-multiple) thread 1: duration=20, iteration=3, product=60
+(alarm-multiple) thread 0: duration=10, iteration=7, product=70
+(alarm-multiple) thread 3: duration=40, iteration=2, product=80
+(alarm-multiple) thread 1: duration=20, iteration=4, product=80
+(alarm-multiple) thread 2: duration=30, iteration=3, product=90
+(alarm-multiple) thread 4: duration=50, iteration=2, product=100
+(alarm-multiple) thread 1: duration=20, iteration=5, product=100
+(alarm-multiple) thread 2: duration=30, iteration=4, product=120
+(alarm-multiple) thread 3: duration=40, iteration=3, product=120
+(alarm-multiple) thread 1: duration=20, iteration=6, product=120
+(alarm-multiple) thread 1: duration=20, iteration=7, product=140
+(alarm-multiple) thread 2: duration=30, iteration=5, product=150
+(alarm-multiple) thread 4: duration=50, iteration=3, product=150
+(alarm-multiple) thread 3: duration=40, iteration=4, product=160
+(alarm-multiple) thread 2: duration=30, iteration=6, product=180
+(alarm-multiple) thread 3: duration=40, iteration=5, product=200
+(alarm-multiple) thread 4: duration=50, iteration=4, product=200
+(alarm-multiple) thread 2: duration=30, iteration=7, product=210
+(alarm-multiple) thread 3: duration=40, iteration=6, product=240
+(alarm-multiple) thread 4: duration=50, iteration=5, product=250
+(alarm-multiple) thread 3: duration=40, iteration=7, product=280
+(alarm-multiple) thread 4: duration=50, iteration=6, product=300
+(alarm-multiple) thread 4: duration=50, iteration=7, product=350
 (alarm-multiple) end
 Execution of 'alarm-multiple' complete.
-Timer: 590 ticks
-Thread: 0 idle ticks, 591 kernel ticks, 0 user ticks     <-- CPU NUNCA fica ociosa
-Console: 2954 characters output
+Timer: 651 ticks
+Thread: 0 idle ticks, 653 kernel ticks, 0 user ticks
+Console: 2953 characters output
 Keyboard: 0 keys pressed
 Powering off...
-
->>> Observação: 0 idle ticks confirma que a implementação original nunca
-    coloca a CPU em estado ocioso -- as threads adormecidas ficam chamando
-    thread_yield() em loop (busy wait), consumindo 100% da CPU o tempo todo.
-
-----------------------------------------------------------------
-2. DEPOIS DA CORREÇÃO - timer_sleep() sem busy wait
-   (devices/timer.c: sleep_list + semáforo por thread + interrupts
-   desabilitadas só para manipular a lista compartilhada com o
-   timer_interrupt)
-----------------------------------------------------------------
-
---- make (threads/) ---
-Compilação limpa, sem erros nem warnings novos em devices/timer.c.
-
---- alarm-single ---
++ cd ../../..
++ echo ==================================================================
+==================================================================
++ echo 'PARTE 2: DEPOIS DA CORRECAO - voltando para o master (timer_sleep sem busy wait)'
+PARTE 2: DEPOIS DA CORRECAO - voltando para o master (timer_sleep sem busy wait)
++ echo ==================================================================
+==================================================================
++ git checkout master -- .
++ git status --short
++ cd src/threads
++ make clean
+rm -rf build
++ make
+mkdir -p build/devices
+mkdir -p build/lib
+mkdir -p build/lib/kernel
+mkdir -p build/lib/user
+mkdir -p build/tests/threads
+mkdir -p build/threads
+cp ../Makefile.build build/Makefile
+cd build && make all
+make[1]: Entering directory '/home/arthur/InfrSW/pintos/src/threads/build'
+gcc -E -nostdinc -I../.. -I../../lib -I../../lib/kernel -P ../../threads/kernel.lds.S > threads/kernel.lds.s
+gcc -c ../../threads/start.S -o threads/start.o -Wa,--gstabs,--32 -nostdinc -I../.. -I../../lib -I../../lib/kernel  -MMD -MF threads/start.d
+gcc -c ../../threads/init.c -o threads/init.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF threads/init.d
+gcc -c ../../threads/thread.c -o threads/thread.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF threads/thread.d
+gcc -c ../../threads/switch.S -o threads/switch.o -Wa,--gstabs,--32 -nostdinc -I../.. -I../../lib -I../../lib/kernel  -MMD -MF threads/switch.d
+gcc -c ../../threads/interrupt.c -o threads/interrupt.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF threads/interrupt.d
+gcc -c ../../threads/intr-stubs.S -o threads/intr-stubs.o -Wa,--gstabs,--32 -nostdinc -I../.. -I../../lib -I../../lib/kernel  -MMD -MF threads/intr-stubs.d
+gcc -c ../../threads/synch.c -o threads/synch.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF threads/synch.d
+gcc -c ../../threads/palloc.c -o threads/palloc.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF threads/palloc.d
+gcc -c ../../threads/malloc.c -o threads/malloc.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF threads/malloc.d
+gcc -c ../../devices/pit.c -o devices/pit.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF devices/pit.d
+gcc -c ../../devices/timer.c -o devices/timer.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF devices/timer.d
+gcc -c ../../devices/kbd.c -o devices/kbd.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF devices/kbd.d
+gcc -c ../../devices/vga.c -o devices/vga.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF devices/vga.d
+gcc -c ../../devices/serial.c -o devices/serial.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF devices/serial.d
+gcc -c ../../devices/block.c -o devices/block.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF devices/block.d
+gcc -c ../../devices/partition.c -o devices/partition.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF devices/partition.d
+gcc -c ../../devices/ide.c -o devices/ide.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF devices/ide.d
+gcc -c ../../devices/input.c -o devices/input.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF devices/input.d
+gcc -c ../../devices/intq.c -o devices/intq.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF devices/intq.d
+gcc -c ../../devices/rtc.c -o devices/rtc.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF devices/rtc.d
+gcc -c ../../devices/shutdown.c -o devices/shutdown.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF devices/shutdown.d
+gcc -c ../../devices/speaker.c -o devices/speaker.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF devices/speaker.d
+gcc -c ../../lib/debug.c -o lib/debug.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF lib/debug.d
+[01m[K../../lib/debug.c:[m[K In function ‘[01m[Kdebug_backtrace[m[K’:
+[01m[K../../lib/debug.c:19:16:[m[K [01;35m[Kwarning: [m[Kcalling ‘[01m[K__builtin_frame_address[m[K’ with a nonzero argument is unsafe [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc-15.2.0/gcc/Warning-Options.html#index-Wframe-address-Wframe-address]8;;[m[K]
+   19 |   for (frame = [01;35m[K__builtin_frame_address (1)[m[K;
+      |                [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+gcc -c ../../lib/random.c -o lib/random.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF lib/random.d
+gcc -c ../../lib/stdio.c -o lib/stdio.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF lib/stdio.d
+gcc -c ../../lib/stdlib.c -o lib/stdlib.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF lib/stdlib.d
+gcc -c ../../lib/string.c -o lib/string.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF lib/string.d
+In file included from [01m[K../../lib/string.c:2[m[K:
+[01m[K../../lib/string.c:[m[K In function ‘[01m[Kstrchr[m[K’:
+[01m[K../../lib/debug.h:32:12:[m[K [01;35m[Kwarning: [m[K‘[01m[Knonnull[m[K’ argument ‘[01m[Kstring[m[K’ compared to NULL [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc-15.2.0/gcc/Warning-Options.html#index-Wno-nonnull-compare-Wnonnull-compare]8;;[m[K]
+   32 |         if [01;35m[K([m[KCONDITION) { } else {                               \
+      |            [01;35m[K^[m[K
+[01m[K../../lib/string.c:117:3:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KASSERT[m[K’
+  117 |   [01;36m[KASSERT[m[K (string != NULL);
+      |   [01;36m[K^~~~~~[m[K
+[01m[K../../lib/string.c:[m[K In function ‘[01m[Kstrlen[m[K’:
+[01m[K../../lib/debug.h:32:12:[m[K [01;35m[Kwarning: [m[K‘[01m[Knonnull[m[K’ argument ‘[01m[Kstring[m[K’ compared to NULL [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc-15.2.0/gcc/Warning-Options.html#index-Wno-nonnull-compare-Wnonnull-compare]8;;[m[K]
+   32 |         if [01;35m[K([m[KCONDITION) { } else {                               \
+      |            [01;35m[K^[m[K
+[01m[K../../lib/string.c:297:3:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KASSERT[m[K’
+  297 |   [01;36m[KASSERT[m[K (string != NULL);
+      |   [01;36m[K^~~~~~[m[K
+gcc -c ../../lib/arithmetic.c -o lib/arithmetic.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF lib/arithmetic.d
+gcc -c ../../lib/ustar.c -o lib/ustar.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF lib/ustar.d
+gcc -c ../../lib/kernel/debug.c -o lib/kernel/debug.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF lib/kernel/debug.d
+[01m[K../../lib/kernel/debug.c:[m[K In function ‘[01m[Kprint_stacktrace[m[K’:
+[01m[K../../lib/kernel/debug.c:82:15:[m[K [01;35m[Kwarning: [m[Kcalling ‘[01m[K__builtin_frame_address[m[K’ with a nonzero argument is unsafe [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc-15.2.0/gcc/Warning-Options.html#index-Wframe-address-Wframe-address]8;;[m[K]
+   82 |       frame = [01;35m[K__builtin_frame_address (1)[m[K;
+      |               [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+gcc -c ../../lib/kernel/list.c -o lib/kernel/list.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF lib/kernel/list.d
+gcc -c ../../lib/kernel/bitmap.c -o lib/kernel/bitmap.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF lib/kernel/bitmap.d
+gcc -c ../../lib/kernel/hash.c -o lib/kernel/hash.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF lib/kernel/hash.d
+gcc -c ../../lib/kernel/console.c -o lib/kernel/console.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF lib/kernel/console.d
+gcc -c ../../tests/threads/tests.c -o tests/threads/tests.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/threads/tests.d
+gcc -c ../../tests/threads/alarm-wait.c -o tests/threads/alarm-wait.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/threads/alarm-wait.d
+[01m[K../../tests/threads/alarm-wait.c:[m[K In function ‘[01m[Ktest_sleep[m[K’:
+[01m[K../../tests/threads/alarm-wait.c:92:46:[m[K [01;35m[Kwarning: [m[K‘[01m[Ksnprintf[m[K’ output may be truncated before the last format character [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc-15.2.0/gcc/Warning-Options.html#index-Wformat-truncation-Wformat-truncation=]8;;[m[K]
+   92 |       snprintf (name, sizeof name, "thread %d[01;32m[K"[m[K, i);
+      |                                              [01;32m[K^[m[K
+[01m[K../../tests/threads/alarm-wait.c:92:7:[m[K [01;36m[Knote: [m[K‘[01m[Ksnprintf[m[K’ output between 9 and 17 bytes into a destination of size 16
+   92 |       [01;36m[Ksnprintf (name, sizeof name, "thread %d", i)[m[K;
+      |       [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+gcc -c ../../tests/threads/alarm-simultaneous.c -o tests/threads/alarm-simultaneous.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/threads/alarm-simultaneous.d
+[01m[K../../tests/threads/alarm-simultaneous.c:[m[K In function ‘[01m[Ktest_sleep[m[K’:
+[01m[K../../tests/threads/alarm-simultaneous.c:61:44:[m[K [01;35m[Kwarning: [m[K‘[01m[K%d[m[K’ directive output may be truncated writing between 1 and 10 bytes into a region of size 9 [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc-15.2.0/gcc/Warning-Options.html#index-Wformat-truncation-Wformat-truncation=]8;;[m[K]
+   61 |       snprintf (name, sizeof name, "thread [01;32m[K%[m[K[01;32m[Kd[m[K", i);
+      |                                            [01;32m[K^[m[K[01;32m[K~[m[K
+[01m[K../../tests/threads/alarm-simultaneous.c:61:36:[m[K [01;36m[Knote: [m[Kdirective argument in the range [0, 2147483646]
+   61 |       snprintf (name, sizeof name, [01;36m[K"thread %d"[m[K, i);
+      |                                    [01;36m[K^~~~~~~~~~~[m[K
+[01m[K../../tests/threads/alarm-simultaneous.c:61:7:[m[K [01;36m[Knote: [m[K‘[01m[Ksnprintf[m[K’ output between 9 and 18 bytes into a destination of size 16
+   61 |       [01;36m[Ksnprintf (name, sizeof name, "thread %d", i)[m[K;
+      |       [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+gcc -c ../../tests/threads/alarm-priority.c -o tests/threads/alarm-priority.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/threads/alarm-priority.d
+gcc -c ../../tests/threads/alarm-zero.c -o tests/threads/alarm-zero.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/threads/alarm-zero.d
+gcc -c ../../tests/threads/alarm-negative.c -o tests/threads/alarm-negative.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/threads/alarm-negative.d
+gcc -c ../../tests/threads/priority-change.c -o tests/threads/priority-change.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/threads/priority-change.d
+gcc -c ../../tests/threads/priority-donate-one.c -o tests/threads/priority-donate-one.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/threads/priority-donate-one.d
+gcc -c ../../tests/threads/priority-donate-multiple.c -o tests/threads/priority-donate-multiple.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/threads/priority-donate-multiple.d
+gcc -c ../../tests/threads/priority-donate-multiple2.c -o tests/threads/priority-donate-multiple2.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/threads/priority-donate-multiple2.d
+gcc -c ../../tests/threads/priority-donate-nest.c -o tests/threads/priority-donate-nest.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/threads/priority-donate-nest.d
+gcc -c ../../tests/threads/priority-donate-sema.c -o tests/threads/priority-donate-sema.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/threads/priority-donate-sema.d
+gcc -c ../../tests/threads/priority-donate-lower.c -o tests/threads/priority-donate-lower.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/threads/priority-donate-lower.d
+gcc -c ../../tests/threads/priority-fifo.c -o tests/threads/priority-fifo.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/threads/priority-fifo.d
+gcc -c ../../tests/threads/priority-preempt.c -o tests/threads/priority-preempt.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/threads/priority-preempt.d
+gcc -c ../../tests/threads/priority-sema.c -o tests/threads/priority-sema.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/threads/priority-sema.d
+gcc -c ../../tests/threads/priority-condvar.c -o tests/threads/priority-condvar.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/threads/priority-condvar.d
+gcc -c ../../tests/threads/priority-donate-chain.c -o tests/threads/priority-donate-chain.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/threads/priority-donate-chain.d
+gcc -c ../../tests/threads/mlfqs-load-1.c -o tests/threads/mlfqs-load-1.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/threads/mlfqs-load-1.d
+gcc -c ../../tests/threads/mlfqs-load-60.c -o tests/threads/mlfqs-load-60.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/threads/mlfqs-load-60.d
+gcc -c ../../tests/threads/mlfqs-load-avg.c -o tests/threads/mlfqs-load-avg.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/threads/mlfqs-load-avg.d
+gcc -c ../../tests/threads/mlfqs-recent-1.c -o tests/threads/mlfqs-recent-1.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/threads/mlfqs-recent-1.d
+gcc -c ../../tests/threads/mlfqs-fair.c -o tests/threads/mlfqs-fair.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/threads/mlfqs-fair.d
+gcc -c ../../tests/threads/mlfqs-block.c -o tests/threads/mlfqs-block.o -m32 -g -msoft-float -O0 -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection -fno-stack-protector -nostdinc -I../.. -I../../lib -I../../lib/kernel -Wall -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers  -MMD -MF tests/threads/mlfqs-block.d
+ld -melf_i386 -T threads/kernel.lds.s -o kernel.o threads/start.o threads/init.o threads/thread.o threads/switch.o threads/interrupt.o threads/intr-stubs.o threads/synch.o threads/palloc.o threads/malloc.o devices/pit.o devices/timer.o devices/kbd.o devices/vga.o devices/serial.o devices/block.o devices/partition.o devices/ide.o devices/input.o devices/intq.o devices/rtc.o devices/shutdown.o devices/speaker.o lib/debug.o lib/random.o lib/stdio.o lib/stdlib.o lib/string.o lib/arithmetic.o lib/ustar.o lib/kernel/debug.o lib/kernel/list.o lib/kernel/bitmap.o lib/kernel/hash.o lib/kernel/console.o tests/threads/tests.o tests/threads/alarm-wait.o tests/threads/alarm-simultaneous.o tests/threads/alarm-priority.o tests/threads/alarm-zero.o tests/threads/alarm-negative.o tests/threads/priority-change.o tests/threads/priority-donate-one.o tests/threads/priority-donate-multiple.o tests/threads/priority-donate-multiple2.o tests/threads/priority-donate-nest.o tests/threads/priority-donate-sema.o tests/threads/priority-donate-lower.o tests/threads/priority-fifo.o tests/threads/priority-preempt.o tests/threads/priority-sema.o tests/threads/priority-condvar.o tests/threads/priority-donate-chain.o tests/threads/mlfqs-load-1.o tests/threads/mlfqs-load-60.o tests/threads/mlfqs-load-avg.o tests/threads/mlfqs-recent-1.o tests/threads/mlfqs-fair.o tests/threads/mlfqs-block.o
+objdump -S kernel.o > kernel.asm
+nm -n kernel.o > kernel.sym
+objcopy -R .note -R .comment -S kernel.o kernel.bin
+gcc -c ../../threads/loader.S -o threads/loader.o -Wa,--gstabs,--32 -nostdinc -I../.. -I../../lib 
+ld -melf_i386 -N -e 0 -Ttext 0x7c00 -o loader.out threads/loader.o
+/usr/bin/x86_64-linux-gnu-ld.bfd: warning: loader.out has a LOAD segment with RWX permissions
+objdump -S loader.out > loader.asm
+objcopy -S -O binary -j .text loader.out loader.bin
+rm loader.out
+make[1]: Leaving directory '/home/arthur/InfrSW/pintos/src/threads/build'
++ cd build
++ echo '----- pintos -- -q run alarm-single -----'
+----- pintos -- -q run alarm-single -----
++ pintos -- -q run alarm-single
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/dFfvj4Rv_P.dsk -m 4 -net none -serial stdio
+Pintos hda1
+Loading............
+Kernel command line: -q run alarm-single
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  28,313,600 loops/s.
+Boot complete.
+Executing 'alarm-single':
 (alarm-single) begin
 (alarm-single) Creating 5 threads to sleep 1 times each.
+(alarm-single) Thread 0 sleeps 10 ticks each time,
+(alarm-single) thread 1 sleeps 20 ticks each time, and so on.
+(alarm-single) If successful, product of iteration count and
+(alarm-single) sleep duration will appear in nondescending order.
 (alarm-single) thread 0: duration=10, iteration=1, product=10
 (alarm-single) thread 1: duration=20, iteration=1, product=20
 (alarm-single) thread 2: duration=30, iteration=1, product=30
@@ -51,40 +390,124 @@ Compilação limpa, sem erros nem warnings novos em devices/timer.c.
 (alarm-single) thread 4: duration=50, iteration=1, product=50
 (alarm-single) end
 Execution of 'alarm-single' complete.
-Timer: 278 ticks
-Thread: 250 idle ticks, 28 kernel ticks, 0 user ticks
-PASS
-
---- alarm-multiple ---
+Timer: 298 ticks
+Thread: 250 idle ticks, 50 kernel ticks, 0 user ticks
+Console: 986 characters output
+Keyboard: 1 keys pressed
+Powering off...
++ echo '----- pintos -- -q run alarm-multiple -----'
+----- pintos -- -q run alarm-multiple -----
++ pintos -- -q run alarm-multiple
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/djAxU9wAOr.dsk -m 4 -net none -serial stdio
+Pintos hda1
+Loading............
+Kernel command line: -q run alarm-multiple
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  32,716,800 loops/s.
+Boot complete.
+Executing 'alarm-multiple':
 (alarm-multiple) begin
 (alarm-multiple) Creating 5 threads to sleep 7 times each.
+(alarm-multiple) Thread 0 sleeps 10 ticks each time,
+(alarm-multiple) thread 1 sleeps 20 ticks each time, and so on.
+(alarm-multiple) If successful, product of iteration count and
+(alarm-multiple) sleep duration will appear in nondescending order.
 (alarm-multiple) thread 0: duration=10, iteration=1, product=10
 (alarm-multiple) thread 1: duration=20, iteration=1, product=20
-... (produtos em ordem não decrescente, ver tests/threads/alarm-multiple.output) ...
+(alarm-multiple) thread 0: duration=10, iteration=2, product=20
+(alarm-multiple) thread 2: duration=30, iteration=1, product=30
+(alarm-multiple) thread 0: duration=10, iteration=3, product=30
+(alarm-multiple) thread 3: duration=40, iteration=1, product=40
+(alarm-multiple) thread 1: duration=20, iteration=2, product=40
+(alarm-multiple) thread 0: duration=10, iteration=4, product=40
+(alarm-multiple) thread 4: duration=50, iteration=1, product=50
+(alarm-multiple) thread 0: duration=10, iteration=5, product=50
+(alarm-multiple) thread 2: duration=30, iteration=2, product=60
+(alarm-multiple) thread 1: duration=20, iteration=3, product=60
+(alarm-multiple) thread 0: duration=10, iteration=6, product=60
+(alarm-multiple) thread 0: duration=10, iteration=7, product=70
+(alarm-multiple) thread 3: duration=40, iteration=2, product=80
+(alarm-multiple) thread 1: duration=20, iteration=4, product=80
+(alarm-multiple) thread 2: duration=30, iteration=3, product=90
+(alarm-multiple) thread 4: duration=50, iteration=2, product=100
+(alarm-multiple) thread 1: duration=20, iteration=5, product=100
+(alarm-multiple) thread 3: duration=40, iteration=3, product=120
+(alarm-multiple) thread 2: duration=30, iteration=4, product=120
+(alarm-multiple) thread 1: duration=20, iteration=6, product=120
+(alarm-multiple) thread 1: duration=20, iteration=7, product=140
+(alarm-multiple) thread 4: duration=50, iteration=3, product=150
+(alarm-multiple) thread 2: duration=30, iteration=5, product=150
+(alarm-multiple) thread 3: duration=40, iteration=4, product=160
+(alarm-multiple) thread 2: duration=30, iteration=6, product=180
+(alarm-multiple) thread 4: duration=50, iteration=4, product=200
+(alarm-multiple) thread 3: duration=40, iteration=5, product=200
+(alarm-multiple) thread 2: duration=30, iteration=7, product=210
+(alarm-multiple) thread 3: duration=40, iteration=6, product=240
+(alarm-multiple) thread 4: duration=50, iteration=5, product=250
+(alarm-multiple) thread 3: duration=40, iteration=7, product=280
+(alarm-multiple) thread 4: duration=50, iteration=6, product=300
 (alarm-multiple) thread 4: duration=50, iteration=7, product=350
 (alarm-multiple) end
 Execution of 'alarm-multiple' complete.
-Timer: 585 ticks
-Thread: 550 idle ticks, 35 kernel ticks, 0 user ticks    <-- 94% do tempo OCIOSA
-Console: 2955 characters output
-PASS
-
->>> Comparação direta com o cenário 1: mesmo teste, mesma carga.
-    Antes: 0 / 591 ticks ociosos (0%).
-    Depois: 550 / 585 ticks ociosos (94%).
-    Isso comprova a eliminação do busy wait: a CPU passa a maior parte
-    do tempo no idle_thread, e não girando em thread_yield().
-
---- alarm-simultaneous ---
+Timer: 639 ticks
+Thread: 550 idle ticks, 90 kernel ticks, 0 user ticks
+Console: 2954 characters output
+Keyboard: 0 keys pressed
+Powering off...
++ echo '----- pintos -- -q run alarm-simultaneous -----'
+----- pintos -- -q run alarm-simultaneous -----
++ pintos -- -q run alarm-simultaneous
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/awbP2Q30U9.dsk -m 4 -net none -serial stdio
+Pintos hda1
+Loading............
+Kernel command line: -q run alarm-simultaneous
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  54,067,200 loops/s.
+Boot complete.
+Executing 'alarm-simultaneous':
 (alarm-simultaneous) begin
-... 3 threads dormem simultaneamente ...
+(alarm-simultaneous) Creating 3 threads to sleep 5 times each.
+(alarm-simultaneous) Each thread sleeps 10 ticks each time.
+(alarm-simultaneous) Within an iteration, all threads should wake up on the same tick.
+(alarm-simultaneous) iteration 0, thread 0: woke up after 10 ticks
+(alarm-simultaneous) iteration 0, thread 1: woke up 0 ticks later
+(alarm-simultaneous) iteration 0, thread 2: woke up 0 ticks later
+(alarm-simultaneous) iteration 1, thread 0: woke up 10 ticks later
+(alarm-simultaneous) iteration 1, thread 1: woke up 0 ticks later
+(alarm-simultaneous) iteration 1, thread 2: woke up 0 ticks later
+(alarm-simultaneous) iteration 2, thread 0: woke up 10 ticks later
+(alarm-simultaneous) iteration 2, thread 1: woke up 0 ticks later
+(alarm-simultaneous) iteration 2, thread 2: woke up 0 ticks later
+(alarm-simultaneous) iteration 3, thread 0: woke up 10 ticks later
+(alarm-simultaneous) iteration 3, thread 1: woke up 0 ticks later
+(alarm-simultaneous) iteration 3, thread 2: woke up 0 ticks later
+(alarm-simultaneous) iteration 4, thread 0: woke up 10 ticks later
+(alarm-simultaneous) iteration 4, thread 1: woke up 0 ticks later
+(alarm-simultaneous) iteration 4, thread 2: woke up 0 ticks later
 (alarm-simultaneous) end
 Execution of 'alarm-simultaneous' complete.
-Timer: 280 ticks
-Thread: 249 idle ticks, 32 kernel ticks, 0 user ticks
-PASS
-
---- alarm-priority ---
+Timer: 308 ticks
+Thread: 249 idle ticks, 60 kernel ticks, 0 user ticks
+Console: 1614 characters output
+Keyboard: 0 keys pressed
+Powering off...
++ echo '----- pintos -- -q run alarm-priority -----'
+----- pintos -- -q run alarm-priority -----
++ pintos -- -q run alarm-priority
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/qOyBYlzdh2.dsk -m 4 -net none -serial stdio
+Pintos hda1
+Loading............
+Kernel command line: -q run alarm-priority
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  39,270,400 loops/s.
+Boot complete.
+Executing 'alarm-priority':
 (alarm-priority) begin
 (alarm-priority) Thread priority 30 woke up.
 (alarm-priority) Thread priority 29 woke up.
@@ -98,84 +521,226 @@ PASS
 (alarm-priority) Thread priority 21 woke up.
 (alarm-priority) end
 Execution of 'alarm-priority' complete.
-Timer: 526 ticks
-Thread: 490 idle ticks, 37 kernel ticks, 0 user ticks
-PASS
-
->>> Observação: as 10 threads deste teste acordam TODAS no mesmo tick.
-    Para que a ordem de saída respeite a prioridade (30 primeiro, 21 por
-    último), sleep_list é ordenada primeiro por wake_tick e, em caso de
-    empate, por prioridade decrescente (ver wake_tick_less() em
-    devices/timer.c). Sem esse desempate, a ordem de acordar seguia a
-    ordem de inserção na lista (ordem de criação das threads), e o teste
-    falhava (ver seção "Dificuldades" no relatório).
-
---- alarm-zero ---
+Timer: 535 ticks
+Thread: 489 idle ticks, 47 kernel ticks, 0 user ticks
+Console: 839 characters output
+Keyboard: 0 keys pressed
+Powering off...
++ echo '----- pintos -- -q run alarm-zero -----'
+----- pintos -- -q run alarm-zero -----
++ pintos -- -q run alarm-zero
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/KEOrSkHPws.dsk -m 4 -net none -serial stdio
+Pintos hda1
+Loading............
+Kernel command line: -q run alarm-zero
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  16,307,200 loops/s.
+Boot complete.
+Executing 'alarm-zero':
 (alarm-zero) begin
 (alarm-zero) PASS
 (alarm-zero) end
-Timer: 26 ticks / Thread: 0 idle ticks, 26 kernel ticks, 0 user ticks
-PASS
-
---- alarm-negative ---
+Execution of 'alarm-zero' complete.
+Timer: 25 ticks
+Thread: 0 idle ticks, 25 kernel ticks, 0 user ticks
+Console: 384 characters output
+Keyboard: 0 keys pressed
+Powering off...
++ echo '----- pintos -- -q run alarm-negative -----'
+----- pintos -- -q run alarm-negative -----
++ pintos -- -q run alarm-negative
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/t6iuZP4N4n.dsk -m 4 -net none -serial stdio
+Pintos hda1
+Loading............
+Kernel command line: -q run alarm-negative
+Pintos booting with 3,968 kB RAM...
+367 pages available in kernel pool.
+367 pages available in user pool.
+Calibrating timer...  28,876,800 loops/s.
+Boot complete.
+Executing 'alarm-negative':
 (alarm-negative) begin
 (alarm-negative) PASS
 (alarm-negative) end
-Timer: 26 ticks / Thread: 0 idle ticks, 26 kernel ticks, 0 user ticks
-PASS
+Execution of 'alarm-negative' complete.
+Timer: 32 ticks
+Thread: 0 idle ticks, 33 kernel ticks, 0 user ticks
+Console: 408 characters output
+Keyboard: 0 keys pressed
+Powering off...
++ echo ==================================================================
+==================================================================
++ echo 'PARTE 3: make check (suite oficial) para os testes de alarm clock'
+PARTE 3: make check (suite oficial) para os testes de alarm clock
++ echo ==================================================================
+==================================================================
++ cd ..
++ rm -f 'build/tests/threads/alarm-*.result' 'build/tests/threads/alarm-*.output'
++ make -k build/tests/threads/alarm-single.result build/tests/threads/alarm-multiple.result build/tests/threads/alarm-simultaneous.result build/tests/threads/alarm-priority.result build/tests/threads/alarm-zero.result build/tests/threads/alarm-negative.result
+cd build && make tests/threads/alarm-single.result
+make[1]: Entering directory '/home/arthur/InfrSW/pintos/src/threads/build'
+pintos -v -k -T 60 --qemu  -- -q  run alarm-single < /dev/null 2> tests/threads/alarm-single.errors > tests/threads/alarm-single.output
+perl -I../.. ../../tests/threads/alarm-single.ck tests/threads/alarm-single tests/threads/alarm-single.result
+[32mpass tests/threads/alarm-single
+[0mmake[1]: Leaving directory '/home/arthur/InfrSW/pintos/src/threads/build'
+cd build && make tests/threads/alarm-multiple.result
+make[1]: Entering directory '/home/arthur/InfrSW/pintos/src/threads/build'
+pintos -v -k -T 60 --qemu  -- -q  run alarm-multiple < /dev/null 2> tests/threads/alarm-multiple.errors > tests/threads/alarm-multiple.output
+perl -I../.. ../../tests/threads/alarm-multiple.ck tests/threads/alarm-multiple tests/threads/alarm-multiple.result
+[32mpass tests/threads/alarm-multiple
+[0mmake[1]: Leaving directory '/home/arthur/InfrSW/pintos/src/threads/build'
+cd build && make tests/threads/alarm-simultaneous.result
+make[1]: Entering directory '/home/arthur/InfrSW/pintos/src/threads/build'
+pintos -v -k -T 60 --qemu  -- -q  run alarm-simultaneous < /dev/null 2> tests/threads/alarm-simultaneous.errors > tests/threads/alarm-simultaneous.output
+perl -I../.. ../../tests/threads/alarm-simultaneous.ck tests/threads/alarm-simultaneous tests/threads/alarm-simultaneous.result
+[32mpass tests/threads/alarm-simultaneous
+[0mmake[1]: Leaving directory '/home/arthur/InfrSW/pintos/src/threads/build'
+cd build && make tests/threads/alarm-priority.result
+make[1]: Entering directory '/home/arthur/InfrSW/pintos/src/threads/build'
+pintos -v -k -T 60 --qemu  -- -q  run alarm-priority < /dev/null 2> tests/threads/alarm-priority.errors > tests/threads/alarm-priority.output
+perl -I../.. ../../tests/threads/alarm-priority.ck tests/threads/alarm-priority tests/threads/alarm-priority.result
+[32mpass tests/threads/alarm-priority
+[0mmake[1]: Leaving directory '/home/arthur/InfrSW/pintos/src/threads/build'
+cd build && make tests/threads/alarm-zero.result
+make[1]: Entering directory '/home/arthur/InfrSW/pintos/src/threads/build'
+pintos -v -k -T 60 --qemu  -- -q  run alarm-zero < /dev/null 2> tests/threads/alarm-zero.errors > tests/threads/alarm-zero.output
+perl -I../.. ../../tests/threads/alarm-zero.ck tests/threads/alarm-zero tests/threads/alarm-zero.result
+[32mpass tests/threads/alarm-zero
+[0mmake[1]: Leaving directory '/home/arthur/InfrSW/pintos/src/threads/build'
+cd build && make tests/threads/alarm-negative.result
+make[1]: Entering directory '/home/arthur/InfrSW/pintos/src/threads/build'
+pintos -v -k -T 60 --qemu  -- -q  run alarm-negative < /dev/null 2> tests/threads/alarm-negative.errors > tests/threads/alarm-negative.output
+perl -I../.. ../../tests/threads/alarm-negative.ck tests/threads/alarm-negative tests/threads/alarm-negative.result
+[32mpass tests/threads/alarm-negative
+[0mmake[1]: Leaving directory '/home/arthur/InfrSW/pintos/src/threads/build'
++ echo ==================================================================
+==================================================================
++ echo 'PARTE 4: exemplos de testes fora do escopo desta atividade (esperado falhar)'
+PARTE 4: exemplos de testes fora do escopo desta atividade (esperado falhar)
++ echo ==================================================================
+==================================================================
++ timeout 90 make -k build/tests/threads/priority-donate-chain.result
+cd build && make tests/threads/priority-donate-chain.result
+make[1]: Entering directory '/home/arthur/InfrSW/pintos/src/threads/build'
+pintos -v -k -T 60 --qemu  -- -q  run priority-donate-chain < /dev/null 2> tests/threads/priority-donate-chain.errors > tests/threads/priority-donate-chain.output
+perl -I../.. ../../tests/threads/priority-donate-chain.ck tests/threads/priority-donate-chain tests/threads/priority-donate-chain.result
+[31mFAIL tests/threads/priority-donate-chain
+[0mTest output failed to match any acceptable form.
 
-----------------------------------------------------------------
-3. RESUMO - make check (pasta threads/)
-----------------------------------------------------------------
-tests/threads/alarm-single.result         PASS
-tests/threads/alarm-multiple.result       PASS
-tests/threads/alarm-simultaneous.result   PASS
-tests/threads/alarm-priority.result       PASS
-tests/threads/alarm-zero.result           PASS
-tests/threads/alarm-negative.result       PASS
+Acceptable output:
+  (priority-donate-chain) begin
+  (priority-donate-chain) main got lock.
+  (priority-donate-chain) main should have priority 3.  Actual priority: 3.
+  (priority-donate-chain) main should have priority 6.  Actual priority: 6.
+  (priority-donate-chain) main should have priority 9.  Actual priority: 9.
+  (priority-donate-chain) main should have priority 12.  Actual priority: 12.
+  (priority-donate-chain) main should have priority 15.  Actual priority: 15.
+  (priority-donate-chain) main should have priority 18.  Actual priority: 18.
+  (priority-donate-chain) main should have priority 21.  Actual priority: 21.
+  (priority-donate-chain) thread 1 got lock
+  (priority-donate-chain) thread 1 should have priority 21. Actual priority: 21
+  (priority-donate-chain) thread 2 got lock
+  (priority-donate-chain) thread 2 should have priority 21. Actual priority: 21
+  (priority-donate-chain) thread 3 got lock
+  (priority-donate-chain) thread 3 should have priority 21. Actual priority: 21
+  (priority-donate-chain) thread 4 got lock
+  (priority-donate-chain) thread 4 should have priority 21. Actual priority: 21
+  (priority-donate-chain) thread 5 got lock
+  (priority-donate-chain) thread 5 should have priority 21. Actual priority: 21
+  (priority-donate-chain) thread 6 got lock
+  (priority-donate-chain) thread 6 should have priority 21. Actual priority: 21
+  (priority-donate-chain) thread 7 got lock
+  (priority-donate-chain) thread 7 should have priority 21. Actual priority: 21
+  (priority-donate-chain) thread 7 finishing with priority 21.
+  (priority-donate-chain) interloper 7 finished.
+  (priority-donate-chain) thread 6 finishing with priority 18.
+  (priority-donate-chain) interloper 6 finished.
+  (priority-donate-chain) thread 5 finishing with priority 15.
+  (priority-donate-chain) interloper 5 finished.
+  (priority-donate-chain) thread 4 finishing with priority 12.
+  (priority-donate-chain) interloper 4 finished.
+  (priority-donate-chain) thread 3 finishing with priority 9.
+  (priority-donate-chain) interloper 3 finished.
+  (priority-donate-chain) thread 2 finishing with priority 6.
+  (priority-donate-chain) interloper 2 finished.
+  (priority-donate-chain) thread 1 finishing with priority 3.
+  (priority-donate-chain) interloper 1 finished.
+  (priority-donate-chain) main finishing with priority 0.
+  (priority-donate-chain) end
+Differences in `diff -u' format:
+  (priority-donate-chain) begin
+  (priority-donate-chain) main got lock.
+- (priority-donate-chain) main should have priority 3.  Actual priority: 3.
+- (priority-donate-chain) main should have priority 6.  Actual priority: 6.
+- (priority-donate-chain) main should have priority 9.  Actual priority: 9.
+- (priority-donate-chain) main should have priority 12.  Actual priority: 12.
+- (priority-donate-chain) main should have priority 15.  Actual priority: 15.
+- (priority-donate-chain) main should have priority 18.  Actual priority: 18.
+- (priority-donate-chain) main should have priority 21.  Actual priority: 21.
+- (priority-donate-chain) thread 1 got lock
+- (priority-donate-chain) thread 1 should have priority 21. Actual priority: 21
+- (priority-donate-chain) thread 2 got lock
+- (priority-donate-chain) thread 2 should have priority 21. Actual priority: 21
+- (priority-donate-chain) thread 3 got lock
+- (priority-donate-chain) thread 3 should have priority 21. Actual priority: 21
+- (priority-donate-chain) thread 4 got lock
+- (priority-donate-chain) thread 4 should have priority 21. Actual priority: 21
+- (priority-donate-chain) thread 5 got lock
+- (priority-donate-chain) thread 5 should have priority 21. Actual priority: 21
+- (priority-donate-chain) thread 6 got lock
+- (priority-donate-chain) thread 6 should have priority 21. Actual priority: 21
+- (priority-donate-chain) thread 7 got lock
+- (priority-donate-chain) thread 7 should have priority 21. Actual priority: 21
+- (priority-donate-chain) thread 7 finishing with priority 21.
+- (priority-donate-chain) interloper 7 finished.
+- (priority-donate-chain) thread 6 finishing with priority 18.
+- (priority-donate-chain) interloper 6 finished.
+- (priority-donate-chain) thread 5 finishing with priority 15.
+- (priority-donate-chain) interloper 5 finished.
+- (priority-donate-chain) thread 4 finishing with priority 12.
+- (priority-donate-chain) interloper 4 finished.
+- (priority-donate-chain) thread 3 finishing with priority 9.
+- (priority-donate-chain) interloper 3 finished.
+- (priority-donate-chain) thread 2 finishing with priority 6.
+- (priority-donate-chain) interloper 2 finished.
+- (priority-donate-chain) thread 1 finishing with priority 3.
+- (priority-donate-chain) interloper 1 finished.
++ (priority-donate-chain) main should have priority 3.  Actual priority: 0.
++ (priority-donate-chain) main should have priority 6.  Actual priority: 0.
++ (priority-donate-chain) main should have priority 9.  Actual priority: 0.
++ (priority-donate-chain) main should have priority 12.  Actual priority: 0.
++ (priority-donate-chain) main should have priority 15.  Actual priority: 0.
++ (priority-donate-chain) main should have priority 18.  Actual priority: 0.
++ (priority-donate-chain) main should have priority 21.  Actual priority: 0.
+  (priority-donate-chain) main finishing with priority 0.
+  (priority-donate-chain) end
+make[1]: Leaving directory '/home/arthur/InfrSW/pintos/src/threads/build'
++ timeout 90 make -k build/tests/threads/mlfqs-load-1.result
+cd build && make tests/threads/mlfqs-load-1.result
+make[1]: Entering directory '/home/arthur/InfrSW/pintos/src/threads/build'
+pintos -v -k -T 480 --qemu  -- -q -mlfqs run mlfqs-load-1 < /dev/null 2> tests/threads/mlfqs-load-1.errors > tests/threads/mlfqs-load-1.output
+perl -I../.. ../../tests/threads/mlfqs-load-1.ck tests/threads/mlfqs-load-1 tests/threads/mlfqs-load-1.result
+[31mFAIL tests/threads/mlfqs-load-1
+[0mKernel panic in run: PANIC at ../../tests/threads/tests.c:93 in fail(): test failed
+Call stack: 0xc0029a37 0xc002be16 0xc002dca2 0xc002bd3d 0xc00207e2 0xc00208c1 0xc00203c0
+Translation of call stack:
+0xc0029a37: debug_panic (.../../lib/kernel/debug.c:38)
+0xc002be16: pass (.../tests/threads/tests.c:99)
+0xc002dca2: test_mlfqs_load_1 (...threads/mlfqs-load-1.c:41)
+0xc002bd3d: run_test (.../tests/threads/tests.c:57)
+0xc00207e2: run_task (.../../../threads/init.c:294)
+0xc00208c1: run_actions (.../../../threads/init.c:344)
+0xc00203c0: pintos_init (.../../../threads/init.c:134)
+make[1]: Leaving directory '/home/arthur/InfrSW/pintos/src/threads/build'
++ echo ==================================================================
+==================================================================
++ echo 'FIM DA SESSAO'
+FIM DA SESSAO
++ echo ==================================================================
+==================================================================
++ date
+Thu Sep 17 14:32:01 -03 2026
 
-  => 6/6 testes de alarm clock (100%) aprovados.
-
-Testes de outras categorias presentes na mesma árvore de código
-(priority-*, priority-donate-*, priority-condvar, mlfqs-*) FALHAM,
-como esperado: eles pertencem aos projetos de "Priority Scheduling" e
-"4.4BSD Scheduler", que não fazem parte desta atividade (apenas Alarm
-Clock) e cujo suporte (fila pronta ordenada por prioridade, doação de
-prioridade, cálculo de recent_cpu/load_avg) não foi implementado.
-Exemplos de falha esperada:
-  - priority-donate-chain: PANIC assertion `lock != NULL' -- doação de
-    prioridade não implementada (fora do escopo).
-  - mlfqs-load-1 / mlfqs-load-60: load average sempre 0.00 -- escalonador
-    4.4BSD não implementado (fora do escopo).
-
-----------------------------------------------------------------
-4. Problema de ambiente encontrado e resolvido (toolchain)
-----------------------------------------------------------------
-Com o kernel original (sem nenhuma mudança de código), o boot no QEMU
-10.2.1 (Ubuntu 26.04, gcc 15.2.0) entrava em triple fault / reboot loop
-logo após imprimir "Pintos booting with ". Depurado com gdb remoto
-(qemu -s -S) + backtrace:
-
-  #0 udiv64 (n=3968, d=0) at ../../lib/arithmetic.c:111
-  #1 umod64 (n=3968, d=0) at ../../lib/arithmetic.c:134
-  #2 __umoddi3 (n=3968, d=0) at ../../lib/arithmetic.c:188
-  #3 format_integer (..., b=0xc003a238 <base_d>, ...) at ../../lib/stdio.c:510
-  ...
-  #7 pintos_init () at ../../threads/init.c:94
-
-Causa raiz: o gcc do Ubuntu tem -fPIE habilitado por padrão. O kernel do
-Pint-OS é um binário estático, "freestanding", carregado por um boot
-loader próprio em endereço fixo -- ele nunca passa por um dynamic linker
-que resolveria as relocações do PIE. O ponteiro para o struct const
-'base_d' era calculado corretamente (PC-relative), mas o CONTEÚDO desse
-struct constante não era inicializado como esperado em tempo de execução,
-fazendo com que o campo "base" fosse lido como 0 em vez de 10, causando
-divisão por zero na primeira formatação de número com o flag "'" do
-printf (usado por "Pintos booting with %'u kB RAM...").
-
-Correção: threads/Make.config passa a compilar com
-  -fno-pie -fno-pic -fcf-protection=none -fno-stack-clash-protection
-Além disso, threads/Make.vars foi ajustado para usar QEMU
-(SIMULATOR = --qemu) em vez de Bochs, que não estava disponível no
-ambiente de testes.
-================================================================
+Script done on 2026-09-17 14:32:01-03:00 [COMMAND_EXIT_CODE="0"]
