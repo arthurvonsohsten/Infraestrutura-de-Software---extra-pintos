@@ -1,3 +1,144 @@
+Script started on 2026-09-18 14:57:48-03:00 [COMMAND="/home/arthur/run_parte0.sh" <not executed on terminal>]
++ date
+Fri Sep 18 14:57:48 -03 2026
++ whoami
+arthur
++ pwd
+/mnt/c/Users/Adriana/Desktop/pint
++ export 'PATH=/home/arthur/InfrSW/pintos/src/utils:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Users/Adriana/bin:/mnt/c/Program Files/Git/mingw64/bin:/mnt/c/Program Files/Git/usr/local/bin:/mnt/c/Program Files/Git/usr/bin:/mnt/c/Program Files/Git/usr/bin:/mnt/c/Program Files/Git/mingw64/bin:/mnt/c/Program Files/Git/usr/bin:/mnt/c/Users/Adriana/bin:/mnt/c/Program Files/Eclipse Adoptium/jdk-17.0.20.8-hotspot/bin:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/java8path:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0:/mnt/c/Windows/System32/OpenSSH:/mnt/c/Program Files/SafeNet/Authentication/SAC/x32:/mnt/c/Program Files/SafeNet/Authentication/SAC/x64:/mnt/c/ProgramData/UNIVALI/Portugol Studio:/mnt/c/Program Files/Git/cmd:/mnt/c/Users/Adriana/AppData/Local/Programs/cursor/resources/app/bin:/mnt/c/Program Files/nodejs:/mnt/c/Program Files/dotnet:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/Users/Adriana/AppData/Local/Android/Sdk/platform-tools:/mnt/c/Users/Adriana/AppData/Local/Android/Sdk/cmdline-tools/latest/bin:/mnt/c/Program Files (x86)/cloudflared:/mnt/c/Users/Adriana/AppData/Local/Programs/Python/Python313/Scripts:/mnt/c/Users/Adriana/AppData/Local/Programs/Python/Python313:/mnt/c/Users/Adriana/AppData/Local/Programs/Python/Launcher:/mnt/c/MinGW/bin:/mnt/c/Users/Adriana/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/Adriana/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/Adriana/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/Adriana/AppData/Local/Programs/cursor/resources/app/bin:/mnt/c/Users/Adriana/AppData/Roaming/npm:/mnt/c/Users/Adriana/.dotnet/tools:/mnt/c/flutter/bin:/mnt/c/Flutter/flutter/bin:/mnt/c/Program Files/Git/usr/bin/vendor_perl:/mnt/c/Program Files/Git/usr/bin/core_perl'
++ PATH='/home/arthur/InfrSW/pintos/src/utils:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Users/Adriana/bin:/mnt/c/Program Files/Git/mingw64/bin:/mnt/c/Program Files/Git/usr/local/bin:/mnt/c/Program Files/Git/usr/bin:/mnt/c/Program Files/Git/usr/bin:/mnt/c/Program Files/Git/mingw64/bin:/mnt/c/Program Files/Git/usr/bin:/mnt/c/Users/Adriana/bin:/mnt/c/Program Files/Eclipse Adoptium/jdk-17.0.20.8-hotspot/bin:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/java8path:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0:/mnt/c/Windows/System32/OpenSSH:/mnt/c/Program Files/SafeNet/Authentication/SAC/x32:/mnt/c/Program Files/SafeNet/Authentication/SAC/x64:/mnt/c/ProgramData/UNIVALI/Portugol Studio:/mnt/c/Program Files/Git/cmd:/mnt/c/Users/Adriana/AppData/Local/Programs/cursor/resources/app/bin:/mnt/c/Program Files/nodejs:/mnt/c/Program Files/dotnet:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/Users/Adriana/AppData/Local/Android/Sdk/platform-tools:/mnt/c/Users/Adriana/AppData/Local/Android/Sdk/cmdline-tools/latest/bin:/mnt/c/Program Files (x86)/cloudflared:/mnt/c/Users/Adriana/AppData/Local/Programs/Python/Python313/Scripts:/mnt/c/Users/Adriana/AppData/Local/Programs/Python/Python313:/mnt/c/Users/Adriana/AppData/Local/Programs/Python/Launcher:/mnt/c/MinGW/bin:/mnt/c/Users/Adriana/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/Adriana/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/Adriana/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/Adriana/AppData/Local/Programs/cursor/resources/app/bin:/mnt/c/Users/Adriana/AppData/Roaming/npm:/mnt/c/Users/Adriana/.dotnet/tools:/mnt/c/flutter/bin:/mnt/c/Flutter/flutter/bin:/mnt/c/Program Files/Git/usr/bin/vendor_perl:/mnt/c/Program Files/Git/usr/bin/core_perl'
++ cd /home/arthur/InfrSW/pintos
++ echo ==================================================================
+==================================================================
++ echo 'PARTE 0: codigo 100% original (commit ab69995, sem nenhuma correcao)'
+PARTE 0: codigo 100% original (commit ab69995, sem nenhuma correcao)
++ echo 'Reproduzindo o bug de boot com o gcc/QEMU deste ambiente'
+Reproduzindo o bug de boot com o gcc/QEMU deste ambiente
++ echo ==================================================================
+==================================================================
++ git status --short
++ git checkout ab69995 -- .
++ git status --short
+[32mM[m  README.md
+[32mM[m  src/Make.config
+[32mM[m  src/devices/timer.c
+[32mM[m  src/threads/Make.vars
++ sed -n 86,97p src/devices/timer.c
+
+/* Sleeps for approximately TICKS timer ticks.  Interrupts must
+   be turned on. */
+void
+timer_sleep (int64_t ticks) 
+{
+  int64_t start = timer_ticks ();
+
+  ASSERT (intr_get_level () == INTR_ON);
+  while (timer_elapsed (start) < ticks) 
+    thread_yield ();
+}
++ cd src/threads
++ make clean
+rm -rf build
++ make
++ tail -8
+objcopy -R .note -R .comment -S kernel.o kernel.bin
+gcc -c ../../threads/loader.S -o threads/loader.o -Wa,--gstabs,--32 -nostdinc -I../.. -I../../lib 
+ld -melf_i386 -N -e 0 -Ttext 0x7c00 -o loader.out threads/loader.o
+/usr/bin/x86_64-linux-gnu-ld.bfd: warning: loader.out has a LOAD segment with RWX permissions
+objdump -S loader.out > loader.asm
+objcopy -S -O binary -j .text loader.out loader.bin
+rm loader.out
+make[1]: Leaving directory '/home/arthur/InfrSW/pintos/src/threads/build'
++ cd build
++ echo '----- pintos --qemu -- -q run alarm-multiple (codigo original, ambiente sem correcao) -----'
+----- pintos --qemu -- -q run alarm-multiple (codigo original, ambiente sem correcao) -----
++ pintos --qemu -- -q run alarm-multiple
++ QEMU_JOB=15588
++ sleep 8
+qemu-system-i386 -device isa-debug-exit -drive format=raw,media=disk,index=0,file=/tmp/keoWhFRIhJ.dsk -m 4 -net none -serial stdio
+Pintos hda1
+Loading.............
+Kernel command line: -q run alarm-multiple
+Pintos booting with Pintos hda1
+Loading.............
+Kernel command line: -q run alarm-multiple
+Pintos booting with Pintos hda1
+Loading.............
+Kernel command line: -q run alarm-multiple
+Pintos booting with Pintos hda1
+Loading.............
+Kernel command line: -q run alarm-multiple
+Pintos booting with Pintos hda1
+Loading.............
+Kernel command line: -q run alarm-multiple
+Pintos booting with Pintos hda1
+Loading.............
+Kernel command line: -q run alarm-multiple
+Pintos booting with Pintos hda1
+Loading.............
+Kernel command line: -q run alarm-multiple
+Pintos booting with Pintos hda1
+Loading.............
+Kernel command line: -q run alarm-multiple
+Pintos booting with Pintos hda1
+Loading.............
+Kernel command line: -q run alarm-multiple
+Pintos booting with Pintos hda1
+Loading.............
+Kernel command line: -q run alarm-multiple
+Pintos booting with Pintos hda1
+Loading.............
+Kernel command line: -q run alarm-multiple
+Pintos booting with Pintos hda1
+Loading.............
+Kernel command line: -q run alarm-multiple
+Pintos booting with Pintos hda1
+Loading.............
+Kernel command line: -q run alarm-multiple
+Pintos booting with Pintos hda1
+Loading.............
+Kernel command line: -q run alarm-multiple
+Pintos booting with Pintos hda1
+Loading.............
+Kernel command line: -q run alarm-multiple
+Pintos booting with Pintos hda1
+Loading.............
+Kernel command line: -q run alarm-multiple
+Pintos booting with Pintos hda1
+Loading.............
+Kernel command line: -q run alarm-multiple
+Pintos booting with Pintos hda1
+Loading.............
+Kernel command line: -q run alarm-multiple
+Pintos booting with Pintos hda1
+Loading.............
+Kernel command line: -q run alarm-multiple
+Pintos booting with Pintos hda1
+Loading.........+ kill -9 15588
++ pkill -9 -f 'qemu-system-i386.*isa-debug-exit'
+./home/arthur/run_parte0.sh: line 29: 15588 Killed                     pintos --qemu -- -q run alarm-multiple
++ wait
++ echo '(processo encerrado apos 8s: o kernel entra em loop de reboot / triple fault e nunca completa o boot)'
+(processo encerrado apos 8s: o kernel entra em loop de reboot / triple fault e nunca completa o boot)
++ cd ../../..
++ echo ==================================================================
+==================================================================
++ echo 'Restaurando o codigo final (master) apos a reproducao'
+Restaurando o codigo final (master) apos a reproducao
++ echo ==================================================================
+==================================================================
++ git checkout master -- .
++ git status --short
++ echo ==================================================================
+==================================================================
++ echo 'FIM DA PARTE 0'
+FIM DA PARTE 0
++ echo ==================================================================
+==================================================================
++ date
+Fri Sep 18 14:57:58 -03 2026
+
+Script done on 2026-09-18 14:57:58-03:00 [COMMAND_EXIT_CODE="0"]
 Script started on 2026-09-17 14:29:56-03:00 [COMMAND="/home/arthur/run_evidence.sh" <not executed on terminal>]
 + date
 Thu Sep 17 14:29:56 -03 2026
